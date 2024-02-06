@@ -7,7 +7,6 @@ export default function Landing() {
 	const [result, setResult] = useState("")
 	const [isLoading, setIsLoading] = useState(false);
 
-
 	const handleInputChange = (e) => {
 		setInput(e.target.value)
 	}
@@ -39,7 +38,8 @@ export default function Landing() {
 
 	return (
 		<div className="flex flex-col h-full bg-gray-100 px-4 gap-4">
-			<h1 className="text-2xl self-center py-4">ChatGPT Integration</h1>
+			<h1 className="text-2xl self-center py-5">ChatGPT Integration</h1>
+			<p className="absolute right-0 top-0 m-1">{process.env.NODE_ENV}</p>
 			<label className="flex flex-col">
 				How can I be of assistance?
 				<input

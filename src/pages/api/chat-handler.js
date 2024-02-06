@@ -1,7 +1,6 @@
 import OpenAI from "openai";
 
 export default async function handler(req, res) {
-	console.log("req", req.method)
 	if (req.method === 'POST') {
 		try {
 			const {input} = req.body
@@ -12,7 +11,6 @@ export default async function handler(req, res) {
 			res.status(500).json(`Something went wrong, ${e.message}`)
 		}
 	} else {
-		console.log("I'm not supposed to be here. why 405?")
 		res.status(405).json("Method not allowed")
 	}
 }

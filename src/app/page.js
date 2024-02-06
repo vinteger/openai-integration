@@ -1,6 +1,7 @@
 'use client'
 
 import {useState} from "react";
+import {ScaleLoader} from "react-spinners";
 
 export default function Landing() {
 	const [input, setInput] = useState("")
@@ -31,9 +32,11 @@ export default function Landing() {
 	}
 
 	if (isLoading) {
-		return (
-			<>Loading...</>
-		)
+	return (
+		<div className="flex justify-center items-center h-full">
+			<ScaleLoader color="#328abf"/>
+		</div>
+	)
 	}
 
 	return (
@@ -41,12 +44,12 @@ export default function Landing() {
 			<h1 className="text-2xl self-center py-5">ChatGPT Integration</h1>
 			<p className="absolute right-0 top-0 m-1">{process.env.NODE_ENV}</p>
 			<label className="flex flex-col">
-				How can I be of assistance?
+				Enter a prompt
 				<input
 					value={input}
 					onChange={handleInputChange}
 					onSubmit={handleSubmission}
-					className="rounded p-1 mt-4 flex-1 w-[80%]"
+					className="rounded py-1 pl-[.5px] mt-4 flex-1 w-[80%]"
 					placeholder="How many Earths can fit inside the Sun?"/>
 			</label>
 			<button
@@ -54,7 +57,7 @@ export default function Landing() {
 				onClick={handleSubmission}>
 				Submit query
 			</button>
-			<p>{result}</p>
+			{result && <q>{result}</q>}
 		</div>
 	);
 }

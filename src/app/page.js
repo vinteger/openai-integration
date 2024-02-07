@@ -1,6 +1,6 @@
 'use client'
 
-import React, {useEffect, useState} from "react"
+import {useEffect, useState} from "react"
 import {ScaleLoader} from "react-spinners";
 import {MODEL} from "@/pages/api/chat-handler";
 
@@ -100,9 +100,9 @@ const btnProps = {
 	},
 	styles: ""
 }
-const Button = (btnProps) => {
+const Button = ({styles, onClick, text} = btnProps) => {
 	return (
-		<button className={`rounded px-3 py-2 max-w-fit bg-blue-500 ${btnProps.styles}`}
-				onClick={btnProps.onClick}>{btnProps.text}</button>
+		<button className={`rounded px-3 py-2 max-w-fit bg-blue-500 ${styles}`}
+				onClick={onClick}>{text}</button>
 	)
 }

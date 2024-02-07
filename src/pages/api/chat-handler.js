@@ -1,5 +1,7 @@
 import OpenAI from "openai";
 
+export const MODEL = "gpt-3.5-turbo";
+
 export default async function handler(req, res) {
 	if (req.method === 'POST') {
 		try {
@@ -23,7 +25,7 @@ const queryChatGPT = async (input) => {
 	const response = await openai.chat.completions.create({
 		messages: [{
 			role: "system", content: input
-		}], model: "gpt-3.5-turbo"
+		}], model: MODEL
 	});
 	return response.choices[0].message.content;
 }

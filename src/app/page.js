@@ -55,7 +55,7 @@ export default function Landing() {
 
 	return (
 		<div className="w-full h-full">
-			<div className="flex flex-col h-full bg-gray-100 px-4 relative">
+			<div className="flex flex-col h-full bg-gray-100 dark:bg-gray-800 dark:text-zinc-300 px-4 relative">
 				<div className="flex">
 					<h1 className="text-2xl self-center mx-auto my-12">ChatGPT Integration</h1>
 				</div>
@@ -65,7 +65,7 @@ export default function Landing() {
 					<input
 						value={input}
 						onChange={handleInputChange}
-						className="rounded py-1 pl-[.5px] mt-4 flex-1 w-ful md:w-[80%]"
+						className="rounded py-1 pl-[.5px] mt-4 flex-1 w-ful md:w-[80%] dark:text-black"
 						placeholder="How many Earths can fit inside the Sun?"/>
 				</label>
 				<div className="flex gap-4 my-4">

@@ -56,42 +56,42 @@ export default function Landing() {
 		setInput("")
 	}
 
-	if (isLoading) {
-		return (
-			<div className="flex justify-center items-center h-full">
-				<ScaleLoader color="#328abf"/>
-			</div>
-		)
-	}
-
 	return (
-		<div className="flex flex-col h-full bg-gray-100 px-4">
-			<div className="grow">
-				<h1 className="text-2xl self-center my-10">ChatGPT Integration</h1>
-				{displayEnv &&
-					<div className="absolute right-0 top-0 m-1 text-[12px] text-gray-400">
-						<p>Environment: {process.env.NODE_ENV}</p>
-						<p>Model: {MODEL}</p>
+		<>
+			<div className="flex flex-col h-full bg-gray-100 px-4 relative">
+				<div className="grow">
+					<h1 className="text-2xl self-center my-10">ChatGPT Integration</h1>
+					{displayEnv &&
+						<div className="absolute right-0 top-0 m-1 text-[12px] text-gray-400">
+							<p>Environment: {process.env.NODE_ENV}</p>
+							<p>Model: {MODEL}</p>
+						</div>
+					}
+					<label className="flex flex-col">
+						Enter a prompt
+						<input
+							value={input}
+							onChange={handleInputChange}
+							className="rounded py-1 pl-[.5px] mt-4 flex-1 w-[80%]"
+							placeholder="How many Earths can fit inside the Sun?"/>
+					</label>
+					<div className="flex gap-4 my-4">
+						<Button text="Submit Query" styles="bg-[#328abf] text-white hover:bg-[#66a3c7]"
+								onClick={handleSubmission}/>
+						{result &&
+							<Button text="Clear" styles="bg-white text-black hover:bg-gray-200" onClick={clearData}/>}
+					< /div>
+					{result && <q>{result}</q>}
+					<div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+						<ScaleLoader
+							color="#328abf"
+							loading={isLoading}
+						/>
 					</div>
-				}
-				<label className="flex flex-col">
-					Enter a prompt
-					<input
-						value={input}
-						onChange={handleInputChange}
-						className="rounded py-1 pl-[.5px] mt-4 flex-1 w-[80%]"
-						placeholder="How many Earths can fit inside the Sun?"/>
-				</label>
-				<div className="flex gap-4 my-4">
-					<Button text="Submit Query" styles="bg-[#328abf] text-white hover:bg-[#66a3c7]"
-							onClick={handleSubmission}/>
-					{result &&
-						<Button text="Clear" styles="bg-white text-black hover:bg-gray-200" onClick={clearData}/>}
-				< /div>
-				{result && <q>{result}</q>}
+				</div>
+				<p className="text-[12px] text-gray-400">⌘ or Ctrl for dev info</p>
 			</div>
-			<p className="text-[12px] text-gray-400">⌘ or Ctrl for dev info</p>
-		</div>
+		</>
 	);
 }
 const btnProps = {

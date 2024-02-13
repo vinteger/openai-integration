@@ -1,6 +1,6 @@
 import OpenAI from "openai";
 
-export const MODEL = "gpt-3.5-turbo-0125";
+export const MODEL = "gpt-4-0125-preview";
 
 export default async function handler(req, res) {
 	if (req.method === 'POST') {

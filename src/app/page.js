@@ -87,8 +87,15 @@ const btnProps = {
 	}, styles: ""
 }
 const Button = ({styles, onClick, text} = btnProps) => {
-	return (<button className={`rounded px-3 py-2 max-w-fit bg-blue-500 ${styles}`}
-					onClick={onClick}>{text}</button>)
+	return (
+		// TODO: Fix element grow on load
+		<button className={`
+				rounded px-3 py-2 max-w-fit bg-[#2d8ff7]
+				will-change-transform active:animate-shrink [&:not(:active)]:animate-grow
+				${styles}
+			`}
+				onClick={onClick}>{text}</button>
+	)
 }
 
 const Loader = ({isLoading}) => {

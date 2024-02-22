@@ -14,7 +14,7 @@ module.exports = {
 			},
 			animation: {
 				grow: 'grow .25s forwards',
-				shrink: 'shrink .25s forwards',
+				shrink: 'shrink .1s forwards',
 			},
 			keyframes: {
 				grow: {

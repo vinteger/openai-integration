@@ -69,10 +69,13 @@ export default function Landing() {
 						placeholder="How many Earths can fit inside the Sun?"/>
 				</label>
 				<div className="flex gap-4 my-4">
-					<Button text="Submit Query" styles="bg-[#328abf] text-white hover:bg-[#66a3c7]"
-							onClick={handleSubmission}/>
+					<Button text="Submit Query"
+							onClick={handleSubmission}
+							disabled={!input.trim()}
+							className="text-white"
+					/>
 					{result &&
-						<Button text="Clear" styles="bg-white text-black hover:bg-gray-200" onClick={clearData}/>}
+						<Button text="Clear" className="text-black bg-white" onClick={clearData}/>}
 				< /div>
 				{result && <q>{result}</q>}
 				<p className="text-[12px] text-gray-400 mt-auto">⌘ or Ctrl for dev info</p>
@@ -86,15 +89,18 @@ const btnProps = {
 	text: "", onClick: () => {
 	}, styles: ""
 }
-const Button = ({styles, onClick, text} = btnProps) => {
+const Button = ({onClick, text, className = "", disabled = false} = btnProps) => {
 	return (
-		// TODO: Fix element grow on load
 		<button className={`
-				rounded px-3 py-2 max-w-fit bg-[#2d8ff7]
-				will-change-transform active:animate-shrink [&:not(:active)]:animate-grow
-				${styles}
+				rounded px-3 py-2 max-w-fit 
+				${disabled ? 'bg-gray-300 text-gray-500' : 'bg-[#2d8ff7] will-change-transform active:animate-shrink'} 
+				${className}
 			`}
-				onClick={onClick}>{text}</button>
+				onClick={onClick}
+				disabled={disabled}
+		>
+			{text}
+		</button>
 	)
 }
 

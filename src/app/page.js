@@ -93,7 +93,7 @@ const Button = ({onClick, text, className = "", disabled = false} = btnProps) =>
 	return (
 		<button className={`
 				rounded px-3 py-2 max-w-fit 
-				${disabled ? 'bg-gray-300 text-gray-500' : 'bg-[#2d8ff7] will-change-transform active:animate-shrink'} 
+				${disabled ? 'bg-gray-300 text-gray-500' : 'bg-[#2d8ff7] will-change-transform active:scale-95 duration-200'} 
 				${className}
 			`}
 				onClick={onClick}

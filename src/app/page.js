@@ -6,7 +6,7 @@ import {MODEL} from "@/pages/api/chat-handler";
 
 export default function Landing() {
 	const [input, setInput] = useState("")
-	const [result, setResult] = useState("")
+	const [result, setResult] = useState("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
 	const [isLoading, setIsLoading] = useState(false)
 	const [displayEnv, setDisplayEnv] = useState(false)
 
@@ -55,7 +55,7 @@ export default function Landing() {
 
 	return (
 		<div className="w-full h-full">
-			<div className="flex flex-col h-full bg-gray-100 dark:bg-gray-800 dark:text-zinc-300 px-4 relative">
+			<div className={`flex flex-col ${result ? 'h-auto' : 'h-full'} bg-gray-100 dark:bg-gray-800 dark:text-zinc-300 px-4 relative`}>
 				<div className="flex">
 					<h1 className="text-2xl self-center mx-auto my-12">ChatGPT Integration</h1>
 				</div>
@@ -77,7 +77,7 @@ export default function Landing() {
 					{result &&
 						<Button text="Clear" className="text-black bg-white" onClick={clearData}/>}
 				< /div>
-				{result && <q>{result}</q>}
+				{result && <q className="pb-4">{result}</q>}
 				<p className="text-[12px] text-gray-400 mt-auto">⌘ or Ctrl for dev info</p>
 			</div>
 			<Loader isLoading={isLoading}/>
